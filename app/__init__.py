@@ -1,4 +1,3 @@
-from . import main
-from . import settings
+from . import main, settings, models
 
-__all__ = ["main", "settings"]
+__all__ = ["main", "settings", "models"]
