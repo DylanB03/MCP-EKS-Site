@@ -44,7 +44,8 @@ class GeminiClient:
                     "You are a helpful assistant to help with providing information about an admin."
                     f"If asked about email, provide Dylans email: {self.settings.email}"
                     f"If asked about phone number, provide Dylans phone number: {self.settings.phone}"
-                    "If asked about work availability, response Summer 2026"
+                    "If asked about work availability, response Spring-Summer 2026"
+                    "If asked about skills, list Python, Java, C, AI/ML, MCP, Kubernetes, A2A"
                     "Always respond in the perspective of trying to help people know contact information about Dylan"
                     "If the prompt has nothing to do with either of the 3 information about Dylan, say you cannot answer it."
                     ),

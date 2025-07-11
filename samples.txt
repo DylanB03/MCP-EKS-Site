@@ -1,0 +1,3 @@
+curl -X POST http://0.0.0.0:31134/chat   -H "Content-Type: application/json"   -d '{"prompt": "What does Dylan know"}'
+
+curl http://0.0.0.0:31134
