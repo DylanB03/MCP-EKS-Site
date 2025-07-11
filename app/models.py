@@ -5,7 +5,7 @@ class GenerateRequest(BaseModel):
     prompt : str
 
 class GenerateResponse(BaseModel):
-    response : dict
+    response : str
 
 class ChatRequest(BaseModel):
     model : str = "gemini-2.5-flash"

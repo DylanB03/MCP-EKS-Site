@@ -6,6 +6,11 @@ from google import genai
 from google.genai import types
 import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
+
 class GeminiClient:
 
     def __init__(self):
@@ -22,7 +27,7 @@ class GeminiClient:
         
         @self.app.post("/generate")
         def generate_completion(request: GenerateRequest) -> GenerateResponse:
-            self.logger.info("generating from a prompt")
+            self.logger.info(f"generating from a prompt {request.prompt}")
             response = self.client.models.generate_content(
                 model=request.model,
                 contents=request.prompt,
@@ -31,12 +36,12 @@ class GeminiClient:
                 ),
             )
             self.logger.info(f"received a response {response.text}")
-            return GenerateResponse(response.text)
+            return GenerateResponse(response=response.text)
         
         # Gemini does not have a chat feature with messages, but it is free so i am using it
         @self.app.post("/chat")
-        def chat_completion(request: GenerateRequest):
-            self.logger.info("sending a chat request")
+        def chat_completion(request: GenerateRequest) -> GenerateResponse:
+            self.logger.info(f"sending a chat request {request.prompt}")
             response = self.client.models.generate_content(
                 model=request.model,
                 config = types.GenerateContentConfig(
@@ -54,7 +59,7 @@ class GeminiClient:
                 contents=request.prompt
             )
             self.logger.info(f"received a chat response {response.text}")
-            return response.text
+            return GenerateResponse(response=response.text)
         
         @self.app.get("/")
         def live():
@@ -70,7 +75,7 @@ def main():
     ollamaInstance = GeminiClient()
     app = ollamaInstance.app
 
-    uvicorn.run(app,host=host,port=port)
+    uvicorn.run(app,host=host,port=port, log_level="info")
 
 if __name__ == "__main__":
     main()

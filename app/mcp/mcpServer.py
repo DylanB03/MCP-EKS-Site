@@ -9,7 +9,13 @@ import logging
 import contextlib
 from collections.abc import AsyncIterator
 import uvicorn
-import asyncio
+from mcp.shared._httpx_utils import create_mcp_http_client
+import json
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
 
 logger = logging.getLogger(__name__)
 
@@ -33,9 +39,61 @@ class GeminiMCPServer:
 
     def initialize_tools(self):
         @self.app.call_tool()
-        async def call_tool(name: str, arguments: dict):
-            return
+        async def call_tool(name: str, arguments: dict) -> list[types.ContentBlock]:
+            logger.info(f"received name and arguments: {name} \n {arguments}")
+            try:
+                if name == "generate":
+                    return await handle_generate(arguments)
+                elif name == "chat":
+                    return await handle_chat(arguments)
+                elif name == "ready":
+                    return await handle_ready()
+            except Exception as e:
+                logger.error(f"Failed to call tool: {e}")
+                return f"Encountered an error: {e}"
         
+        async def handle_generate(arguments:dict) -> list[types.ContentBlock]:
+
+            logger.info(f"sending arguments {arguments}")
+            async with create_mcp_http_client() as client:
+                response = await client.post(
+                    url = f"http://{Settings.model_host}:{Settings.model_port}/generate",
+                    json=arguments
+                    )
+                response.raise_for_status()
+                logger.info(f"answer {response.text}")
+                return [types.TextContent(type="text",text=response.text)]
+            
+        async def handle_chat(arguments:dict) -> list[types.ContentBlock]:
+            #gemini doesnt have a chat feature, so just take the user input and send that as a prompt
+            #dont allow system or assistant messages
+            prompt = {"prompt" : ""}
+            for m in json.loads(arguments["messages"]):
+                logger.info(f"sorting a message {m}, {arguments}")
+                if m.get("role","")=="user":
+                    prompt["prompt"] += m["content"]
+            if arguments.get("model",False):
+                prompt["model"] = arguments["model"]
+
+            logger.info(f"trying to send a prompt: {prompt}")
+            async with create_mcp_http_client() as client:
+                response = await client.post(
+                    url = f"http://{Settings.model_host}:{Settings.model_port}/chat",
+                    json=prompt
+                    )
+                response.raise_for_status()
+                logger.info(f"response {response.text}")
+                return [types.TextContent(type="text",text=response.text)]
+            
+        async def handle_ready() -> list[types.ContentBlock]:
+            async with create_mcp_http_client() as client:
+                response = await client.get(
+                    url = f"http://{Settings.model_host}:{Settings.model_port}",
+                    )
+                response.raise_for_status()
+                logger.info(f"response { response.text}")
+                return [types.TextContent(type="text",text=response.text)]
+
         @self.app.list_tools()
         async def list_tools() -> list[types.Tool]:
             return [
@@ -110,7 +168,7 @@ class GeminiMCPServer:
             lifespan=lifespan
         )
 
-        uvicorn.run(app = app, host = self.host, port = self.port)
+        uvicorn.run(app = app, host = self.host, port = self.port, log_level="info")
 
 
 def main():
