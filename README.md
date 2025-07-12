@@ -1,2 +1,2 @@
-# portfoliosite
-site for my portfoli. using: MCP, A2A, Python, Kubernetes
+# dylansite
+site for my portfoli. using: MCP, Python, Kubernetes / Amazon EKS
