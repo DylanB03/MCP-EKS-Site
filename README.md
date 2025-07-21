@@ -1,5 +1,7 @@
-# dylansite
-site for my portfoli. using: MCP, Python, Kubernetes / Amazon EKS
+# MCP - EKS Site
+Private site for my portfolio. 
+Backend: MCP, Python, Kubernetes / Amazon EKS
+Frontend: React
 
 # Local Running
 
