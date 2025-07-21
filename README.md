@@ -3,7 +3,7 @@ Private site for my portfolio.
 Backend: MCP, Python, Kubernetes / Amazon EKS
 Frontend: React
 
-# Local Running
+## Local Running
 
 For this to run locally, you require multiple bash terminals.
 
