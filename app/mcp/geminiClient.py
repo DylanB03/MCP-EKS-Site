@@ -42,6 +42,10 @@ class GeminiClient:
         @self.app.post("/chat")
         def chat_completion(request: GenerateRequest) -> GenerateResponse:
             self.logger.info(f"sending a chat request {request.prompt}")
+
+            #pull relevant data from graphdb
+            
+
             response = self.client.models.generate_content(
                 model=request.model,
                 config = types.GenerateContentConfig(
