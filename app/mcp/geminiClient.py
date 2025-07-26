@@ -19,7 +19,7 @@ class GeminiClient:
         self.app = FastAPI()
         self.routes()
         self.settings = Settings
-        self.client = genai.Client(api_key=self.settings.GEMINI_API_KEY)
+        self.client = genai.Client(api_key=self.settings.GEMINI_API_KEY) 
 
     def routes(self):
 

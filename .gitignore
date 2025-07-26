@@ -4,3 +4,5 @@
 **/.python-version
 **/__pycache__/
 **/inspect/
+**/venv/
+**/cypher_query.txt
