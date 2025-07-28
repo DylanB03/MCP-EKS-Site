@@ -1,6 +1,7 @@
 from mcp.server.lowlevel import Server
 from starlette.applications import Starlette
 from starlette.routing import Mount
+from starlette.middleware.cors import CORSMiddleware
 import mcp.types as types
 from mcp.server.streamable_http_manager import StreamableHTTPSessionManager
 from starlette.types import Receive, Scope, Send
@@ -21,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class GeminiMCPServer:
 
-    def __init__(self, host: str = "0.0.0.0", port: int = 8080):
+    def __init__(self, host: str = "0.0.0.0", port: int = 3000):
         
 
         logger.info(f"Initializing MCP Server at: {host}:{port}")
@@ -32,7 +33,8 @@ class GeminiMCPServer:
         self.session_manager = StreamableHTTPSessionManager(
             app = self.app,
             event_store= None,
-            json_response=False
+            stateless=True,
+            json_response=True
         )
         self.initialize_tools()
         self.setup_mcp()
@@ -148,6 +150,7 @@ class GeminiMCPServer:
         async def handle_streamable_http(
                 scope: Scope, receive: Receive, send: Send
         ) -> None:
+            logger.info(f"Scope: {scope.get("headers")}")
             await self.session_manager.handle_request(scope,receive,send)
 
         #manages async resources
@@ -168,13 +171,21 @@ class GeminiMCPServer:
             lifespan=lifespan
         )
 
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=False,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+
         uvicorn.run(app = app, host = self.host, port = self.port, log_level="info")
 
 
 def main():
     logger.info("running gemini MCP server...")
 
-    mcp = GeminiMCPServer()
+    mcp = GeminiMCPServer(host=Settings.mcp_host,port=Settings.mcp_port)
 
 if __name__ == '__main__':
     main()

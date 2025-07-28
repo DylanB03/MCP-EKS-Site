@@ -1,3 +1,3 @@
-from . import geminiClient, mcpServer
+from . import geminiClient, mcpServer, fastServer
 
-__all__ = ["mcpServer", "geminiClient"]
+__all__ = ["mcpServer", "geminiClient", "fastServer"]
