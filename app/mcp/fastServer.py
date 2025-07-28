@@ -35,7 +35,7 @@ class GeminiMCPServer:
         async def generate(prompt: str, model: str = "gemini-2.5-flash"):
             async with create_mcp_http_client() as client:
                 response = await client.post(
-                    url = f"http://{Settings.model_host}:{Settings.model_port}/generate",
+                    url = f"http://127.0.0.1:{Settings.model_port}/generate",
                     json={
                         "model" : model,
                         "prompt" : prompt
@@ -43,17 +43,31 @@ class GeminiMCPServer:
                     )
                 response.raise_for_status()
                 logger.info(f"answer {response.text}")
-                return [types.TextContent(type="text",text=response.text)]
-            
+            return [types.TextContent(type="text",text=response.text)]
+        
+        @self.app.tool()
+        async def chat(prompt: str, model: str = "gemini-2.5-flash"):
+            async with create_mcp_http_client() as client:
+                response = await client.post(
+                    url = f"http://127.0.0.1:{Settings.model_port}/chat",
+                    json={
+                        "model" : model,
+                        "prompt" : prompt
+                    }
+                    )
+                response.raise_for_status()
+                logger.info(f"answer {response.text}")
+            return [types.TextContent(type="text",text=response.text)]
+
         @self.app.tool()
         async def ready():
             async with create_mcp_http_client() as client:
-                    response = await client.post(
-                        url = f"http://{Settings.model_host}:{Settings.model_port}",
+                    response = await client.get(
+                        url = f"http://127.0.0.1:{Settings.model_port}",
                         )
                     response.raise_for_status()
                     logger.info(f"answer {response.text}")
-                    return [types.TextContent(type="text",text=response.text)]
+            return [types.TextContent(type="text",text=response.text)]
             
     def run(self):
         self.app.run(transport="streamable-http")

@@ -3,6 +3,7 @@ from app.settings import Settings
 import logging
 import uuid
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+import json
 
 
 logging.basicConfig(
@@ -35,7 +36,7 @@ class mcpClient:
     )
     async def make_request(self, method: str, args: dict):
         try:
-            json = {
+            json_data = {
                 "jsonrpc": "2.0",
                 "id": str(uuid.uuid4()),
                 "method": method,
@@ -44,7 +45,7 @@ class mcpClient:
             
             logger.info(f"Sending JSON: {json}")
             response =  await self.httpx_client.post(
-                json = json,
+                json = json_data,
                 url=self.url,
                 headers={
                     "Content-Type": "application/json",
@@ -54,6 +55,9 @@ class mcpClient:
                 }
             )
             response.raise_for_status()
+
+            response = json.loads(response.content.decode("utf-8"))
+            return response.get("result",{}).get("content",[])[0].get("text")
 
         except httpx.HTTPStatusError as e:
             logger.error(f"Got an HTTp Error: {e}, {e.response}")
@@ -99,13 +103,13 @@ class mcpClient:
         except Exception as e:
             logger.error(f"Failed to make generate request: {e}")
             
-    async def chat_request(self,messages):
+    async def chat_request(self,prompt):
         try:
             return await self.handle_request(
                 tool = "chat",
                 args = {
                     "model" : "gemini-2.5-flash",
-                    "messages" : messages
+                    "prompt" : prompt
             })
         except Exception as e:
             logger.error(f"Failed to make chat request: {e}")
