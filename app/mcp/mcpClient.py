@@ -7,7 +7,7 @@ import json
 
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 )
 
@@ -18,41 +18,38 @@ class mcpClient:
     def __init__(self, mcp_url: str):
         self.settings = Settings
         self.url = mcp_url
+        logger.info(f"Creating aclient with url: {mcp_url}")
+        self.url = mcp_url
         self.httpx_client = httpx.AsyncClient(
             headers= {
                 "Content-Type": "application/json",
                 "Accept" : "application/json, text/event-stream",
                 "User-Agent" : "mcpClient/1.0",
-                "x-mcp-version": "1"
             },
             # base_url= self.url,
-            timeout = 30
+            timeout = 10
         )
 
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min = 4, max=10),
         retry= retry_if_exception_type((httpx.TimeoutException,httpx.ConnectError))
-    )
+    )   
     async def make_request(self, method: str, args: dict):
         try:
-            json_data = {
+            logger.info(f"Attempting to make request to url: {self.url}, {method},{args}")
+            response =  await self.httpx_client.post(
+                json={
                 "jsonrpc": "2.0",
                 "id": str(uuid.uuid4()),
                 "method": method,
                 "params": args
-            }
-            
-            logger.info(f"Sending JSON: {json}")
-            response =  await self.httpx_client.post(
-                json = json_data,
-                url=self.url,
+                },
                 headers={
                     "Content-Type": "application/json",
-                    "Accept" : "application/json, text/event-stream",
-                    "User-Agent" : "mcpClient/1.0",
-                    "x-mcp-version": "1"
-                }
+                    "Accept": "application/json, text/event-stream",
+                },
+                url=self.url
             )
             response.raise_for_status()
 

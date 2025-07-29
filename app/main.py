@@ -1,4 +1,3 @@
-import uvicorn
 from app.settings import Settings
 import asyncio
 from app.mcp.mcpClient import mcpClient

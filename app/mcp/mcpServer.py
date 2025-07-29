@@ -14,7 +14,7 @@ from mcp.shared._httpx_utils import create_mcp_http_client
 import json
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 )
 
@@ -41,7 +41,7 @@ class GeminiMCPServer:
 
     def initialize_tools(self):
         @self.app.call_tool()
-        async def call_tool(name: str, arguments: dict) -> list[types.ContentBlock]:
+        async def call_tool(name: str, arguments: dict | None) -> list[types.ContentBlock]:
             logger.info(f"received name and arguments: {name} \n {arguments}")
             try:
                 if name == "generate":
@@ -166,7 +166,7 @@ class GeminiMCPServer:
 
         app = Starlette(
             routes = [
-                Mount("/mcp",app=handle_streamable_http),
+                Mount("/mcp/",app=handle_streamable_http),   
             ],
             lifespan=lifespan
         )
