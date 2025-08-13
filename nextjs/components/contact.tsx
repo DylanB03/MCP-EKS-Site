@@ -17,7 +17,7 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message:
-      "Sending a message through this form may not work if I ran out of tokens, please contact me elsewhere 😅😄.",
+      "Sending a message through this form doesnt work yet as I havent set up security for the mailer, sorry 😅😄.",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
