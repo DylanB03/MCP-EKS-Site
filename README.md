@@ -71,3 +71,27 @@ For geminiClient:
 Use a curl request to your set host and port.
 
 
+## Run the Next.js App
+
+### .env.local file
+```bash
+cd nextjs
+
+touch .env.local
+```
+
+Sample:
+```
+SMTP_HOST=smtp-server.com
+SMTP_PORT=587
+SMTP_USER=myemail@email.com
+SMTP_PASS=myapporemailpassword
+TO_EMAIL=myemail@email.com
+```
+
+```bash
+
+npm run dev
+
+```
+
