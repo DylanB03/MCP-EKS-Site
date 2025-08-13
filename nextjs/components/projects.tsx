@@ -6,40 +6,31 @@ import { Github, ExternalLink } from "lucide-react"
 export function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Portfolio Website",
       description:
-        "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Next.js", "Stripe", "PostgreSQL", "Tailwind CSS"],
+        "Full-stack website using MCP, Knowledge Graphs, AWS, and Next.js to answer questions about me",
+      image: "/projects/portfoliosite.png?height=200&width=300",
+      technologies: ["MCP", "Neo4j", "Knowledge Graphs", "Python", "AWS", "Next.js"],
+      github: "https://github.com/DylanB03/MCP-EKS-Site",
+      demo: "https://dylanb.ca",
+    },
+    {
+      title: "Portfolio Optimizer",
+      description:
+        "In development. Using NASDAQ API and popular + quantum algorithms to solve portfolio optimization problems.",
+      image: "/projects/portfolio_optimizer.png?height=200&width=300",
+      technologies: ["Python", "Finance", "Quantitative Programming"],
       github: "https://github.com",
       demo: "https://demo.com",
     },
     {
-      title: "Task Management App",
-      description:
-        "Collaborative project management tool with real-time updates, file sharing, and team communication.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["React", "Socket.io", "MongoDB", "Express"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "Weather Analytics Dashboard",
-      description: "Data visualization dashboard showing weather patterns and climate trends with interactive charts.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Vue.js", "D3.js", "Python", "FastAPI"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-    },
-    {
-      title: "Social Media API",
-      description:
-        "RESTful API for social media platform with authentication, posts, comments, and real-time notifications.",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Node.js", "JWT", "Redis", "Docker"],
-      github: "https://github.com",
-      demo: null,
-    },
+      title: "Progress Check Website",
+      description: "Enabled instructors to monitor and support over 100 student users real time with a MySQL relational database for a learning tracker.",
+      image: "/projects/progress.png?height=200&width=300",
+      technologies: ["Linux", "MySQL", "PHP", "Apache", "Relational DB"],
+      github: "https://github.com/DylanB03/ProgressCheckWebsite",
+      demo: "https://github.com/DylanB03/ProgressCheckWebsite/blob/main/README.md",
+    }
   ]
 
   return (

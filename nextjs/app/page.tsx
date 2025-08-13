@@ -8,7 +8,7 @@ import { Projects } from "@/components/projects"
 import { Technologies } from "@/components/technologies"
 import { Education } from "@/components/education"
 import { Certifications } from "@/components/certifications"
-import { Contact } from "@/components/contact"
+import Contact from "@/components/contact";
 import { Navigation } from "@/components/navigation"
 import { Chatbot } from "@/components/chatbot"
 import { IntroAnimation } from "@/components/intro-animation"

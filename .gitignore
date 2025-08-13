@@ -6,3 +6,4 @@
 **/inspect/
 **/venv/
 **/cypher_query.txt
+**/.env.local

@@ -18,28 +18,25 @@ export function About() {
 
           <div className="space-y-6">
             <p className="text-gray-600 leading-relaxed">
-              I'm a passionate full-stack software engineer with over 5 years of experience building web applications
-              that solve real-world problems. My journey started with a Computer Science degree, and I've been
-              continuously learning and adapting to new technologies ever since.
+              I'm a passionate AI/ML and cloud developer with experience building MCP servers and autonomous agents using A2A and LangGraph/Chain for 5G configuration from the ground up.
+              In my free time, I like to play video games, classical guitar, and play sports.
             </p>
 
             <p className="text-gray-600 leading-relaxed">
-              I specialize in modern JavaScript frameworks, cloud architecture, and creating scalable solutions that
-              deliver exceptional user experiences. When I'm not coding, you'll find me contributing to open-source
-              projects or exploring the latest tech trends.
+              I specialize in modern AI technologies and frameworks, cloud networking, and creating agents that solve complex probles. 
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-8">
               <Card>
                 <CardContent className="p-4 text-center">
-                  <div className="text-2xl font-bold text-orange-600 mb-1">50+</div>
-                  <div className="text-sm text-gray-600">Projects Completed</div>
+                  <div className="text-2xl font-bold text-orange-600 mb-1">Top 0.01%</div>
+                  <div className="text-sm text-gray-600">In Valorant and League of Legends</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4 text-center">
-                  <div className="text-2xl font-bold text-orange-600 mb-1">5+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
+                  <div className="text-2xl font-bold text-orange-600 mb-1">3+</div>
+                  <div className="text-sm text-gray-600">Years of Dev Experience</div>
                 </CardContent>
               </Card>
             </div>

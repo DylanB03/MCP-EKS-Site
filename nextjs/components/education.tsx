@@ -4,23 +4,14 @@ import { GraduationCap, Calendar, MapPin } from "lucide-react"
 export function Education() {
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      school: "Stanford University",
-      location: "Stanford, CA",
-      period: "2017 - 2019",
+      degree: "Software Engineering",
+      school: "Carleton University",
+      location: "Ottawa, ON",
+      period: "2024-2028",
       gpa: "3.8/4.0",
-      description: "Specialized in Machine Learning and Distributed Systems. Thesis on scalable web architectures.",
-      coursework: ["Advanced Algorithms", "Machine Learning", "Distributed Systems", "Database Systems"],
-    },
-    {
-      degree: "Bachelor of Science in Software Engineering",
-      school: "University of California, Berkeley",
-      location: "Berkeley, CA",
-      period: "2013 - 2017",
-      gpa: "3.7/4.0",
-      description: "Graduated Magna Cum Laude. Active member of Computer Science Society and hackathon organizer.",
-      coursework: ["Data Structures", "Software Engineering", "Computer Networks", "Operating Systems"],
-    },
+      description: "Course work includes: Object-Oriented Programming, Algorithms and Datastructures",
+      coursework: ["Advanced Algorithms", "C", "Python", "Java", "Object-Oriented Programming"],
+    }
   ]
 
   return (

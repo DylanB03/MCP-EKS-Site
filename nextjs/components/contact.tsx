@@ -11,38 +11,60 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
-export function Contact() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    })
-
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    setIsSubmitting(false)
-  }
+    message:
+      "Sending a message through this form may not work if I ran out of tokens, please contact me elsewhere 😅😄.",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const json = await res.json();
+
+      if (res.ok) {
+        toast({
+          title: "Message sent!",
+          description: json?.message || "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        console.error("Server error:", json);
+        toast({
+          title: "Failed to send",
+          description: json?.error || "Something went wrong — try again later.",
+        });
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      toast({
+        title: "Network error",
+        description: "Couldn't reach the server. Try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -89,7 +111,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Location</p>
-                  <p className="text-gray-600">Ottawa, CA</p>
+                  <p className="text-gray-600">Ottawa, ON</p>
                 </div>
               </div>
             </div>
@@ -104,14 +126,7 @@ export function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} required className="mt-1" />
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
@@ -129,14 +144,7 @@ export function Contact() {
 
                 <div>
                   <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="mt-1"
-                  />
+                  <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="mt-1" />
                 </div>
 
                 <div>
@@ -148,7 +156,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="mt-1"
+                    className="mt-1 whitespace-pre-line"
                   />
                 </div>
 
@@ -172,5 +180,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

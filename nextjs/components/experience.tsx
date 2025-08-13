@@ -5,31 +5,31 @@ import { Calendar, MapPin } from "lucide-react"
 export function Experience() {
   const experiences = [
     {
-      title: "Senior Software Engineer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
+      title: "Cloud Networking and AI/ML Developer",
+      company: "Nokia",
+      location: "Ottawa, ON",
+      period: "May 2025 - Present",
       description:
-        "Lead development of microservices architecture serving 1M+ users. Mentored junior developers and implemented CI/CD pipelines.",
-      technologies: ["React", "Node.js", "AWS", "Docker", "TypeScript"],
+        "Designed and developed a cloud-native multi-agent LLM system using Google A2A protocol and MCP servers, enabling chain-of-thought analysis, a speculative RAG, and LLM as a judge for 5G core configuration. \n\n Increased retrieval accuracy by 26% by pivoting from vector databases to graph databases (Neo4j) and LangChain memory stores. \n\nEnabled self improvement through Supervised Fine Tuning, KTO and GRPO for agentic systems. \n\nBuilt MCP servers using FastAPI and REST API to automate CRD deployment, scale cloud resources, and interact with various LLM engines using vector embedding for retrieval processes in agentic AI workflows. \n\nDelivered proof of concepts to executives, expanding technologies to company wide production teams. \n\nManaged two interns, helping them deliver through agile user stories, improving team velocity and code quality.",
+      technologies: ["MCP", "A2A", "Kubernetes", "AI", "ML", "Python", "DPO", "KTO", "Supervised Fine Tuning"],
     },
     {
-      title: "Full Stack Developer",
-      company: "StartupXYZ",
-      location: "Remote",
-      period: "2020 - 2022",
+      title: "Software Developer",
+      company: "FIRST Robotics Earl of March",
+      location: "Ottawa, ON",
+      period: "September 2022 - June 2023",
       description:
-        "Built and maintained web applications using modern frameworks. Collaborated with design team to implement pixel-perfect UIs.",
-      technologies: ["Vue.js", "Python", "PostgreSQL", "Redis", "GraphQL"],
+        "Designed and coded a robot in Java alongside peers. \n\n Specialized on the autonomous phase and movement of the robot.",
+      technologies: ["Java", "Object-Oriented Programming"],
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency",
-      location: "New York, NY",
-      period: "2019 - 2020",
+      title: "Supervisor",
+      company: "Farmboy Grocery Store",
+      location: "Ottawa, ON",
+      period: "June 2022 - November 2022",
       description:
-        "Developed responsive websites and web applications for various clients. Optimized performance and implemented SEO best practices.",
-      technologies: ["JavaScript", "React", "SASS", "Webpack", "Jest"],
+        "Promoted after 3 months as a result of exceptional performance and general recommendations from superiors. \n\nDelegated tasks, managed the safe and cash balances, assigned break schedules, and handled conflict resolution while working additionally as a cashier.",
+      technologies: ["Communication", "Management"],
     },
   ]
 
@@ -65,7 +65,7 @@ export function Experience() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">{exp.description}</p>
+                <p className="text-gray-600 mb-4 whitespace-pre-line">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
                     <Badge key={tech} variant="secondary">

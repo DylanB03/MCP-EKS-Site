@@ -6,36 +6,28 @@ import { Button } from "@/components/ui/button"
 export function Certifications() {
   const certifications = [
     {
-      title: "AWS Certified Solutions Architect",
+      title: "AWS Cloud Technical Essentials",
       issuer: "Amazon Web Services",
-      date: "2023",
+      date: "2025",
       credentialId: "AWS-SAA-2023-001",
-      description: "Demonstrates expertise in designing distributed systems on AWS.",
+      description: "Demonstrates knowledge of AWS products, services, and solutions, such as EC2, Lambda, EKS.",
       verifyUrl: "https://aws.amazon.com/verification",
     },
     {
-      title: "Google Cloud Professional Developer",
-      issuer: "Google Cloud",
-      date: "2022",
+      title: "AWS Generative AI Applications",
+      issuer: "Amazon Web Services",
+      date: "In Progress",
       credentialId: "GCP-PD-2022-001",
-      description: "Validates skills in developing scalable applications on Google Cloud Platform.",
+      description: "Learn data management, security, and AI practices for AWS using Bedrock and PartyRock.",
       verifyUrl: "https://cloud.google.com/certification",
     },
     {
-      title: "Certified Kubernetes Administrator",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2022",
+      title: "AWS Generative AI for Developers Professional Certificate",
+      issuer: "Amazon Cloud Services",
+      date: "In Progress",
       credentialId: "CKA-2022-001",
-      description: "Demonstrates skills in Kubernetes cluster administration and troubleshooting.",
+      description: "Build and deploy Gen AI applications for Bedrock, optimizing fine tuning, job evaluation, while utilizing prompt caching and routing.",
       verifyUrl: "https://www.cncf.io/certification",
-    },
-    {
-      title: "MongoDB Certified Developer",
-      issuer: "MongoDB Inc.",
-      date: "2021",
-      credentialId: "MDB-DEV-2021-001",
-      description: "Validates proficiency in MongoDB database development and optimization.",
-      verifyUrl: "https://university.mongodb.com/certification",
     },
   ]
 
