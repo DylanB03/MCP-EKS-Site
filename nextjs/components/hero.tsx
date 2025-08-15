@@ -23,7 +23,7 @@ export function Hero() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <a href="https://drive.google.com/file/d/1L0cTxNMozrWVr2m6d9iysdh-mv48FyYu/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/file/d/1LCBwecPz1OLgQC_kEc50a0kyRnqGpqfj/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
               <ExternalLink className="mr-2 h-4 w-4" />
               View Resume
