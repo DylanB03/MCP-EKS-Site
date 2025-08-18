@@ -2,9 +2,14 @@ from app.settings import Settings
 import asyncio
 from app.mcp.mcpClient import mcpClient
 from app.mcp.fastServer import GeminiMCPServer
+import threading
 
 async def main():
 
+    #establish threads for every single server
+    geminiClient = 
+    
+    
     url = f"http://127.0.0.1:{Settings.mcp_port}/mcp"
     print(f"Using url: {url}")
     

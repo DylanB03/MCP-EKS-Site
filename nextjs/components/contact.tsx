@@ -17,7 +17,7 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message:
-      "Sending a message through this form doesnt work yet as I havent set up security for the mailer, sorry 😅😄.",
+      "Sending a message through this form doesnt work as my azure free trial ended so no auth, sorry 😅😄.",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
