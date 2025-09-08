@@ -7,11 +7,11 @@ export function Certifications() {
   const certifications = [
     {
       title: "AWS Cloud Technical Essentials",
-      issuer: "Amazon Web Services",
+      issuer: "Coursera",
       date: "2025",
-      credentialId: "AWS-SAA-2023-001",
-      description: "Demonstrates knowledge of AWS products, services, and solutions, such as EC2, Lambda, EKS.",
-      verifyUrl: "https://aws.amazon.com/verification",
+      credentialId: "WFXL5QK544WA",
+      description: "Demonstrates knowledge of AWS products, services, and solutions, such as EC2, Lambda, EKS, S3, Bedrock.",
+      verifyUrl: "https://www.coursera.org/account/accomplishments/certificate/WFXL5QK544WA",
     },
     {
       title: "AWS Generative AI Applications",

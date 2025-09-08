@@ -6,8 +6,13 @@ import threading
 
 async def main():
 
+    def run_gemini():
+        geminiClient = GeminiMCPServer()
     #establish threads for every single server
-    geminiClient = 
+    
+    gemini_thread = threading.Thread(target=run_gemini)
+    
+    gemini_thread.start()
     
     
     url = f"http://127.0.0.1:{Settings.mcp_port}/mcp"
@@ -20,6 +25,8 @@ async def main():
     await s.close()
 
     return 
+
+
 
 if __name__ == "__main__":
     asyncio.run(main())
