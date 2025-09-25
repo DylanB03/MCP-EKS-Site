@@ -5,12 +5,12 @@ import { Calendar, MapPin } from "lucide-react"
 export function Experience() {
   const experiences = [
     {
-      title: "Cloud Networking and AI/ML Developer",
+      title: "Software and AI/ML Developer",
       company: "Nokia",
       location: "Ottawa, ON",
       period: "May 2025 - Present",
       description:
-        "Designed and developed a cloud-native multi-agent LLM system using Google A2A protocol and MCP servers, enabling chain-of-thought analysis, a speculative RAG, and LLM as a judge for 5G core configuration. \n\n Increased retrieval accuracy by 26% by pivoting from vector databases to graph databases (Neo4j) and LangChain memory stores. \n\nEnabled self improvement through Supervised Fine Tuning, KTO and GRPO for agentic systems. \n\nBuilt MCP servers using FastAPI and REST API to automate CRD deployment, scale cloud resources, and interact with various LLM engines using vector embedding for retrieval processes in agentic AI workflows. \n\nDelivered proof of concepts to executives, expanding technologies to company wide production teams. \n\nManaged two interns, helping them deliver through agile user stories, improving team velocity and code quality.",
+        "Developed a cloud-native multi-agent LLM system using Google A2A protocol and MCP servers, enabling chain-of-thought analysis, a speculative RAG, and LLM as a judge for 5G core configuration. \n\n Increased retrieval accuracy by 26% by pivoting from vector databases to graph databases (Neo4j) and LangChain memory stores. \n\nEnabled self improvement through Supervised Fine Tuning, KTO and GRPO for agentic systems. \n\nBuilt MCP servers using FastAPI and REST API to automate CRD deployment, scale cloud resources, and interact with various LLM engines using vector embedding for retrieval processes in agentic AI workflows. \n\nExposed context retrieval of structured and unstructured data using multi-modal, semantic, and lexical searches, integrating tools such as Docling\n\nDelivered proof of concepts to executives, expanding technologies to company wide production teams. \n\nManaged two interns, helping them deliver through agile user stories, improving team velocity and code quality.",
       technologies: ["MCP", "A2A", "Kubernetes", "AI", "ML", "Python", "DPO", "KTO", "Supervised Fine Tuning"],
     },
     {

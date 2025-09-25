@@ -17,11 +17,11 @@ export function Projects() {
     {
       title: "Portfolio Optimizer",
       description:
-        "In development. Using NASDAQ API and popular + quantum algorithms to solve portfolio optimization problems.",
+        "In development. Using NASDAQ API and popular + quantum algorithms to solve portfolio optimization problems using an agentic AI approach",
       image: "/projects/portfolio_optimizer.png?height=200&width=300",
-      technologies: ["Python", "Finance", "Quantitative Programming"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      technologies: ["Python", "Finance", "Quantitative Programming", "LangGraph", "AI","ML"],
+      github: "https://github.com/DylanB03/Portfolio-Optimization",
+      demo: "https://github.com/DylanB03/Portfolio-Optimization/blob/main/README.md",
     },
     {
       title: "Progress Check Website",
