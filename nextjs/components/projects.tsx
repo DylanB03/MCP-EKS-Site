@@ -8,16 +8,16 @@ export function Projects() {
     {
       title: "Portfolio Website",
       description:
-        "Full-stack website using MCP, Knowledge Graphs, AWS, and Next.js to answer questions about me",
+        "Full-stack website using Next.js and an AWS EC2 hosted python backend to answer questions about me",
       image: "/projects/portfoliosite.png?height=200&width=300",
-      technologies: ["MCP", "Neo4j", "Knowledge Graphs", "Python", "AWS", "Next.js"],
+      technologies: ["Python", "AWS", "Next.js"],
       github: "https://github.com/DylanB03/MCP-EKS-Site",
       demo: "https://dylanb.ca",
     },
     {
       title: "Portfolio Optimizer",
       description:
-        "In development. Using NASDAQ API and popular + quantum algorithms to solve portfolio optimization problems using an agentic AI approach",
+        "In development. Using Polygon API and popular + simulated quantum algorithms to solve portfolio optimization problems using an agentic AI approach",
       image: "/projects/portfolio_optimizer.png?height=200&width=300",
       technologies: ["Python", "Finance", "Quantitative Programming", "LangGraph", "AI","ML"],
       github: "https://github.com/DylanB03/Portfolio-Optimization",
