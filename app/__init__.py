@@ -1,3 +1,3 @@
-from . import main, settings, models
+from . import main, settings, models, geminiServer
 
-__all__ = ["main", "settings", "models"]
+__all__ = ["main", "settings", "models", "geminiServer"]

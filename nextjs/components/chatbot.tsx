@@ -22,7 +22,7 @@ export function Chatbot() {
     {
       id: "1",
       content:
-        "Hi! I'm Dylans's AI assistant, interfaced with MCP. I can answer questions about his skills, contact information, and availability. What would you like to know?",
+        "Hi! I'm Dylans's AI assistant. I can answer questions about his skills, contact information, and availability. What would you like to know?",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -127,26 +127,63 @@ export function Chatbot() {
   }
 
   // Fallback responses for demo purposes
-  const getFallbackResponse = (question: string): string => {
+ const getFallbackResponse = (question: string): string => {
     const lowerQuestion = question.toLowerCase()
 
     if (lowerQuestion.includes("proficiencies") || lowerQuestion.includes("skills")) {
-      return "Dylans's main proficiencies include:\n\n• Frontend: React, Next.js, TypeScript, Vue.js, Tailwind CSS\n• Backend: Node.js, Python, Express.js, FastAPI, GraphQL\n• Database: PostgreSQL, MongoDB, Redis, MySQL\n• DevOps: AWS, Docker, Kubernetes, Git\n\nHe has 5+ years of experience building scalable web applications and has completed 50+ projects."
+      return (
+        "Dylan’s core technical proficiencies include:\n\n" +
+        "• Languages: Python, Java, C, C++, SQL, PHP, HTML, CSS, Linux\n" +
+        "• AI/ML & Data: PyTorch, Scikit-learn, Reinforcement Learning, LangChain/LangGraph, QLoRA, PEFT, Pandas, Numpy, Jupyter Notebooks\n" +
+        "• Cloud & DevOps: Kubernetes, Docker, Crossplane, AWS/EKS, Helm, Git\n" +
+        "• Backend: FastAPI, REST APIs, Neo4j (Knowledge Graphs), MCP servers, distributed & containerized systems\n" +
+        "• Frontend: React, Next.js\n\n" +
+        "He specializes in cloud-native backend systems, multi-agent LLM architectures, and knowledge-graph-powered retrieval systems."
+      )
     }
 
     if (lowerQuestion.includes("experience")) {
-      return "Dylans has 5+ years of professional experience as a software engineer. He's currently a Senior Software Engineer at TechCorp Inc., where he leads development of microservices serving 1M+ users. Previously, he worked at StartupXYZ as a Full Stack Developer and at Digital Agency as a Frontend Developer."
+      return (
+        "Dylan is a Software and AI/ML Developer with experience at Nokia Canada (May–Aug 2025).\n" +
+        "His work includes:\n\n" +
+        "• Developing multi-agent LLM systems using Google A2A and MCP protocols\n" +
+        "• Designing cloud-native, multi-service backends with FastAPI, Kubernetes, Docker, and Crossplane\n" +
+        "• Improving retrieval accuracy by 26% by transitioning from vector stores to Neo4j graph databases\n" +
+        "• Performing Supervised Fine Tuning, KTO, and GRPO via QLoRA/PEFT\n" +
+        "• Exposing structured/unstructured retrieval through semantic, lexical, and multimodal search APIs\n" +
+        "• Building MCP servers for LLM tool-calling over HTTP/SSE\n" +
+        "• Delivering production prototypes to internal engineering leadership\n" +
+        "• Mentoring two interns and improving sprint velocity and code quality\n\n" +
+        "Earlier experience includes FIRST Robotics (Java autonomous systems) and a Supervisor role at FarmBoy."
+      )
     }
 
     if (lowerQuestion.includes("projects")) {
-      return "Some of Dylans's notable projects include:\n\n• E-Commerce Platform - Full-stack solution with payment integration\n• Task Management App - Collaborative tool with real-time updates\n• Weather Analytics Dashboard - Data visualization with interactive charts\n• Social Media API - RESTful API with authentication and notifications\n\nYou can view more details in the Projects section above!"
+      return (
+        "Some of Dylan’s notable technical projects include:\n\n" +
+        "• Agent Portfolio Optimizer – AI-driven portfolio optimization agent using MCP, LangGraph, QSim, and Cirq; includes backtesting, analytics, and quantum-inspired algorithms\n" +
+        "• Next.js + MCP Web Application – A portfolio site integrating MCP tool-calling and LLM prompt engineering, deployed on AWS EKS\n" +
+        "• Full-Stack Portfolio App – Next.js frontend with a Python backend, CI/CD, and deployment on AWS EC2\n\n" +
+        "These projects highlight his strengths in cloud systems, LLM architectures, backend engineering, and AI/ML."
+      )
     }
 
     if (lowerQuestion.includes("technologies") || lowerQuestion.includes("tech")) {
-      return "Dylans works with modern technologies across the full stack:\n\n• Frontend frameworks like React and Vue.js\n• Backend technologies including Node.js and Python\n• Cloud platforms like AWS\n• Databases including PostgreSQL and MongoDB\n• DevOps tools like Docker and Kubernetes\n\nCheck out the Technologies section for the complete list!"
+      return (
+        "Dylan works with a modern, production-grade technology stack:\n\n" +
+        "• Cloud & DevOps: Kubernetes, Docker, Crossplane, AWS/EKS, Helm\n" +
+        "• AI/ML: Reinforcement Learning, LangChain/LangGraph, QLoRA, PEFT, Knowledge Graphs (Neo4j), PyTorch, Scikit-learn\n" +
+        "• Backend: FastAPI, REST APIs, MCP servers, distributed systems\n" +
+        "• Frontend: React, Next.js\n" +
+        "• Languages: Python, Java, C, C++, SQL, PHP, HTML/CSS, Linux\n\n" +
+        "These tools power his work in multi-agent LLM systems, cloud-native microservices, automation, and intelligent retrieval pipelines."
+      )
     }
 
-    return "I'm currently having trouble connecting to the server, but I'd be happy to help you learn more about Dylans's experience and skills. Try asking about his proficiencies, experience, projects, or technologies!"
+    return (
+      "I'm currently having trouble connecting to the server, but I can still help you learn more about Dylan's background.\n" +
+      "Try asking about his proficiencies, experience, projects, or technologies!"
+    )
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -172,7 +209,7 @@ export function Chatbot() {
                 ×
               </button>
               <p className="text-sm text-gray-700 pr-2">
-                👋 Hi! I'm Dylans's AI assistant powered by MCP. I can answer questions about his skills, and availability.
+                👋 Hi! I'm Dylans's AI assistant. I can answer questions about his skills, experience, and availability.
                 Try asking me!
               </p>
               {/* Arrow pointing to chat button */}
