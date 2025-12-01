@@ -81,15 +81,14 @@ export function Chatbot() {
     setIsLoading(true)
 
     try {
-      // Replace with your actual server endpoint
+      // Send request to your secure server route (never exposes LLM_URL)
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: content.trim(),
-          context: "portfolio_assistant", // Add context for your AI model
+          prompt: content.trim(), // <-- FIXED TO MATCH BACKEND
         }),
       })
 
@@ -110,7 +109,6 @@ export function Chatbot() {
     } catch (error) {
       console.error("Error sending message:", error)
 
-      // Fallback response for demo purposes
       const fallbackResponse = getFallbackResponse(content.trim())
 
       const botMessage: Message = {
