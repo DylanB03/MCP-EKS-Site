@@ -6,12 +6,12 @@ import { Github, ExternalLink } from "lucide-react"
 export function Projects() {
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "AWS Portfolio Site",
       description:
         "Full-stack website using Next.js and an AWS EC2 hosted python backend to answer questions about me",
       image: "/projects/portfoliosite.png?height=200&width=300",
       technologies: ["Python", "AWS", "Next.js"],
-      github: "https://github.com/DylanB03/MCP-EKS-Site",
+      github: "https://github.com/DylanB03/AWS-Portfolio-Site",
       demo: "https://dylanb.ca",
     },
     {

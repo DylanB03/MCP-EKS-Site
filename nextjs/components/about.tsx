@@ -18,12 +18,12 @@ export function About() {
 
           <div className="space-y-6">
             <p className="text-gray-600 leading-relaxed">
-              I'm a passionate AI/ML and cloud developer with experience building MCP servers and autonomous agents using A2A and LangGraph/Chain for 5G configuration and portfolio optimization from the ground up.
+              I'm a passionate software and AI/ML developer with experience building MCP servers and autonomous agents using A2A and LangGraph/Chain for 5G configuration and portfolio optimization from the ground up.
               In my free time, I like to play video games, classical guitar, and sports.
             </p>
 
             <p className="text-gray-600 leading-relaxed">
-              I specialize in modern AI technologies and frameworks, cloud networking, and creating agents that solve complex problems. 
+              I specialize in modern AI technologies and frameworks, software engineering, and creating agents that solve complex problems. 
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-8">

@@ -13,22 +13,6 @@ export function Certifications() {
       description: "Demonstrates knowledge of AWS products, services, and solutions, such as EC2, Lambda, EKS, S3, Bedrock.",
       verifyUrl: "https://www.coursera.org/account/accomplishments/certificate/WFXL5QK544WA",
     },
-    {
-      title: "AWS Generative AI Applications",
-      issuer: "Amazon Web Services",
-      date: "In Progress",
-      credentialId: "GCP-PD-2022-001",
-      description: "Learn data management, security, and AI practices for AWS using Bedrock and PartyRock.",
-      verifyUrl: "https://cloud.google.com/certification",
-    },
-    {
-      title: "AWS Generative AI for Developers Professional Certificate",
-      issuer: "Amazon Cloud Services",
-      date: "In Progress",
-      credentialId: "CKA-2022-001",
-      description: "Build and deploy Gen AI applications for Bedrock, optimizing fine tuning, job evaluation, while utilizing prompt caching and routing.",
-      verifyUrl: "https://www.cncf.io/certification",
-    },
   ]
 
   return (

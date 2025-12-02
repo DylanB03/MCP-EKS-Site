@@ -8,10 +8,10 @@ export function Experience() {
       title: "Software and AI/ML Developer",
       company: "Nokia",
       location: "Ottawa, ON",
-      period: "May 2025 - Present",
+      period: "May 2025 - August 2025",
       description:
-        "Developed a cloud-native multi-agent LLM system using Google A2A protocol and MCP servers, enabling chain-of-thought analysis, a speculative RAG, and LLM as a judge for 5G core configuration. \n\n Increased retrieval accuracy by 26% by pivoting from vector databases to graph databases (Neo4j) and LangChain memory stores. \n\nEnabled self improvement through Supervised Fine Tuning, KTO and GRPO for agentic systems. \n\nBuilt MCP servers using FastAPI and REST API to automate CRD deployment, scale cloud resources, and interact with various LLM engines using vector embedding for retrieval processes in agentic AI workflows. \n\nExposed context retrieval of structured and unstructured data using multi-modal, semantic, and lexical searches, integrating tools such as Docling\n\nDelivered proof of concepts to executives, expanding technologies to company wide production teams. \n\nManaged two interns, helping them deliver through agile user stories, improving team velocity and code quality.",
-      technologies: ["MCP", "A2A", "Kubernetes", "AI", "ML", "Python", "DPO", "KTO", "Supervised Fine Tuning"],
+        "Developed a cloud-native multi-agent LLM system using Google A2A and MCP protocols, enabling chain-of-thought analysis and RAG pipelines for 5G core configuration. \n\n Increased retrieval accuracy by 26% by pivoting from vector databases to graph databases (Neo4j) and LangChain memory stores. \n\nPerformed Supervised Fine Tuning, KTO, and GRPO algorithms with QLoRA PEFT \n\nBuilt MCP servers for LLM tool calling, automating CRD deployment, scaling cloud resources, accessed via HTTP and SSE protocols via FastAPI. \n\nExposed context retrieval of structured and unstructured data using multi-modal, semantic, and lexical searches, integrating tools such as Docling.\n\nDeveloped containerized and backend services on Kubernetes and Crossplane environments with Docker. \n\nDelivered proof of concepts to executives, expanding technologies to company wide production teams. \n\nManaged two interns, helping them deliver through agile user stories, improving team velocity and code quality.",
+      technologies: ["MCP", "A2A", "Kubernetes", "AI", "ML", "Python", "GRPO", "KTO", "Supervised Fine Tuning"],
     },
     {
       title: "Software Developer",
@@ -19,7 +19,7 @@ export function Experience() {
       location: "Ottawa, ON",
       period: "September 2022 - June 2023",
       description:
-        "Designed and coded a robot in Java alongside peers. \n\n Specialized on the autonomous phase and movement of the robot.",
+        "Developed Java-based control software for robot systems, focusing on modular architecture, sensor integration, and path planning. \n\n Collaborated with teammates using Git, code reviews, and iterative testing cycles to deliver competition-ready robot software.",
       technologies: ["Java", "Object-Oriented Programming"],
     },
     {
